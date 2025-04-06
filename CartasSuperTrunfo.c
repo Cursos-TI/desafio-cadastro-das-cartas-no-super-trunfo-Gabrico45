@@ -1,49 +1,60 @@
 #include <stdio.h>
 
-int main() {
-    char codigo[4]; // Código da carta (ex: A01)
-    int populacao;  // População da cidade
-    float area;     // Área da cidade
-    double pib;     // PIB da cidade
-    int pontosTuristicos; // Número de pontos turísticos
-    char continuar = 's'; // Controle para cadastrar outra carta
+int main(){
+    
+    int populacao;  // População do país
+    float area;  // Área do país em km²
+    double PIB;   // PIB do país em bilhões
+    int pontosturisticos;  // Número de pontos turísticos
+    char codigo[4];  //código da carta, com limite de 4 caracteres.
+    char pais[20];  // Nome do país, com limite de 20 caracteres.
+    char continuar = 's'; // Vai captar se o usuario quer cadastrar outra carta ou não.
+    
+    do { //enquanto tiver no do e while, o programa vai rodar.
+        printf("Bem vindo ao Super Trunfo! Iniciado cadastramento das cartas...\n");
+        printf("\nDigite o codigo país (exemplo: A01): ");
+        scanf("%s", codigo); // %s é para ler string, e o & é para ler o endereço de memoria.
 
-    printf("Bem-vindo ao Desafio Super Trunfo - Países!\n");
-    printf("Cadastro de cartas com informações das cidades.\n");
+        printf("Digite o nome do país: ");
+        scanf("%s", pais);  
 
-    do {
-        // Solicitar o código da carta ao usuário
-        printf("\nDigite o código da carta (exemplo: A01): ");
-        scanf("%s", codigo);
-
-        // Entrada de dados
-        printf("Digite a população da cidade: ");
+        printf("Digite a população do país : ");
         scanf("%d", &populacao);
 
-        printf("Digite a área da cidade (em km²): ");
+        printf("Digite a área do país em km²: ");
         scanf("%f", &area);
 
-        printf("Digite o PIB da cidade (em bilhões): ");
-        scanf("%lf", &pib);
+        printf("Digite o PIB do país em bilhões: ");
+        scanf("%lf", &PIB);
 
-        printf("Digite o número de pontos turísticos: ");
-        scanf("%d", &pontosTuristicos);
+        printf("Digite o número de pontos turísticos do país: ");
+        scanf("%d", &pontosturisticos);
 
-        // Exibição das informações cadastradas
-        printf("\n--- Carta cadastrada: %s ---\n", codigo);
-        printf("População: %d habitantes\n", populacao);
+        printf("\nCarta cadastrada!\n");
+
+        printf("Seu Páis é: %s\n", pais);
+        printf("Codigo do país: %s\n", codigo);
+        printf("População: %d\n", populacao);
         printf("Área: %.2f km²\n", area);
-        printf("PIB: %.2f bilhões\n", pib);
-        printf("Pontos turísticos: %d\n", pontosTuristicos);
+        printf("PIB: %.2lf Bilhões\n", PIB);
+        printf("Pontos turísticos: %d\n", pontosturisticos);
 
-        // Perguntar se deseja cadastrar outra carta
-        printf("\nDeseja cadastrar outra carta? (s/n): ");
+        printf("Obrigado por cadastrar sua carta!\n");
+        printf("Deseja cadastrar outra carta? (s/n): ");
         scanf(" %c", &continuar);
+    }   while (continuar == 's' || continuar == 'S'); //while enquanto o usuario disser "s" ou "S" ele vai voltar no inicio para cadastrar outra carta, se o usuario disser não "n" o programa sai do while e finaliza.
+        
+        printf("\nCadastro concluído! Obrigado por usar o sistema.\n"); 
 
-    } while (continuar == 's' || continuar == 'S');
-    
+    return 0;    
 
-    printf("\nCadastro concluído! Obrigado por usar o sistema.\n");
 
-    return 0;
-}    
+
+
+
+
+
+
+
+
+}

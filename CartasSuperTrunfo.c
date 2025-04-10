@@ -2,8 +2,10 @@
 
 int main(){
     
+    int opcao;
+
     //variaveis para a carta1
-    char codigo1[4]; // Tamanho 4: 1 letra + 2 números (EX: A01) OBS: acredito que o "ENTER" conta como o 4 caracter.
+    char codigo1[4]; // Tamanho 4: 1 letra + 2 números (EX: A01)
     char pais1[20];
     char estado1[20];
     char cidade1[20];
@@ -82,16 +84,6 @@ int main(){
     scanf("%d", &pontosturisticos2);
 
     printf("\n--- Cartas cadastradas com sucesso! ---\n");
-    
-    //calculos para a primeira carta
-    densidadePopulacional1 = populacao1 / area1;
-    pibPerCapita1 = pib1 / populacao1;
-    SuperPoder1 = populacao1 + area1 + pib1 + pontosturisticos1 + pibPerCapita1 + (1.0f / densidadePopulacional1);
-
-    //calculos para a segunda carta
-    densidadePopulacional2 = populacao2 / area2;
-    pibPerCapita2 = pib2 / populacao2;
-    SuperPoder2 = populacao2 + area2 + pib2 + pontosturisticos2 + pibPerCapita2 + (1.0f / densidadePopulacional2);
 
     // Comparação entre as cartas
     if (populacao1 > populacao2) {
@@ -150,5 +142,85 @@ int main(){
         printf("Super Poder: Empate!\n");
     }
 
+    printf("\nVocê quer comparar os atributos de cada carta?\n");
+    printf("Digite 1 para sim ou 0 para não: ");
+    scanf("%d", &opcao);
+
+    switch (opcao) { //usei Switch para definir o que o usuário quer comparar // o switch é mais legível que o if
+        case 1:
+               printf("Qual atributo você quer comparar?\n");
+               printf("1 - Nome dos países\n");
+               printf("2 - População\n");
+               printf("3 - Área\n");
+               printf("4 - PIB\n");
+               printf("5 - Pontos Turísticos\n");
+               printf("6 - Densidade Populacional\n");
+               printf("0 - Mostrar todos os atributos!\n");
+               printf("Digite sua escolha: ");
+               scanf("%d", &opcao);
+               
+               switch (opcao) {
+                   case 1:
+                       printf("Você escolheu comparar os nomes dos países.\n");
+                       printf("Carta 1: %s\n", pais1);
+                       printf("Carta 2: %s\n", pais2);
+                       break;
+                   case 2:
+                       printf("Você escolheu comparar a população.\n");
+                       printf("Carta 1: %lu milhões\n", populacao1);
+                       printf("Carta 2: %lu milhões\n", populacao2);
+                       break;
+                   case 3:
+                       printf("Você escolheu comparar a área.\n");
+                       printf("Carta 1: %.2f km²\n", area1);
+                       printf("Carta 2: %.2f km²\n", area2);
+                       break;
+                   case 4:
+                       printf("Você escolheu comparar o PIB.\n");
+                       printf("Carta 1: %.2f bilhões\n", pib1);
+                       printf("Carta 2: %.2f bilhões\n", pib2);
+                       break;
+                   case 5:
+                       printf("Você escolheu comparar os pontos turísticos.\n");
+                       printf("Carta 1: %d pontos turísticos\n", pontosturisticos1);
+                       printf("Carta 2: %d pontos turísticos\n", pontosturisticos2);
+                       break;
+                   case 6:
+                       printf("Você escolheu comparar a densidade populacional.\n");
+                       printf("Carta 1: %.2f habitantes/km²\n", densidadePopulacional1);
+                       printf("Carta 2: %.2f habitantes/km²\n", densidadePopulacional2);
+                       break;      
+                   case 0:
+                       printf("Você escolheu mostrar todos os atributos.\n");
+                       printf("Carta 1:\n");
+                       printf("Nome: %s\n", pais1);
+                       printf("População: %lu milhões\n", populacao1);
+                       printf("Área: %.2f km²\n", area1);
+                       printf("PIB: %.2f bilhões\n", pib1);
+                       printf("Pontos Turísticos: %d\n", pontosturisticos1);
+                       printf("Densidade Populacional: %.2f habitantes/km²\n", densidadePopulacional1);
+                       printf("\nCarta 2:\n");
+                       printf("Nome: %s\n", pais2);
+                       printf("População: %lu milhões\n", populacao2);
+                       printf("Área: %.2f km²\n", area2);
+                       printf("PIB: %.2f bilhões\n", pib2);
+                       printf("Pontos Turísticos: %d\n", pontosturisticos2);
+                       printf("Densidade Populacional: %.2f habitantes/km²\n", densidadePopulacional2);           
+                       break;          
+               }
+            break;
+    }
+         
+    //calculos para a primeira carta
+    densidadePopulacional1 = populacao1 / area1;
+    pibPerCapita1 = pib1 / populacao1;
+    SuperPoder1 = populacao1 + area1 + pib1 + pontosturisticos1 + pibPerCapita1 + (1.0f / densidadePopulacional1);
+
+    //calculos para a segunda carta
+    densidadePopulacional2 = populacao2 / area2;
+    pibPerCapita2 = pib2 / populacao2;
+    SuperPoder2 = populacao2 + area2 + pib2 + pontosturisticos2 + pibPerCapita2 + (1.0f / densidadePopulacional2);
     return 0;    
 }
+
+
